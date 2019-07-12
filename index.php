@@ -8,7 +8,7 @@ if (isset($_POST['login'])) {
     $password=md5($password);
     
     if (empty($username) && empty($password)) {
-        $error= 'Fileds are Mandatory';
+        $error= 'Fields are Mandatory';
     } else {
         //Checking Login Detail
         $result=mysqli_query($conn,"SELECT*FROM `user` WHERE `username`='$username' AND `password`='$password'");
