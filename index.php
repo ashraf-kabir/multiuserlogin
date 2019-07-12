@@ -11,7 +11,7 @@ if (isset($_POST['login'])) {
     if (empty($username) && empty($password)) {
         $error= 'Fields are Mandatory';
     } else {
-        //Checking Login Detail
+        //Checking login detail
         $result = mysqli_query($con,"SELECT * FROM `user` WHERE `username`='$username' AND `password`='$passwordmd5'");
         $row = mysqli_fetch_assoc($result);
         $count = mysqli_num_rows($result);
