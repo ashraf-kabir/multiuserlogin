@@ -1,19 +1,20 @@
 <?php
 session_start();
-$conn=mysqli_connect('localhost','root','','codenair');
+include('config.php');
+//$conn=mysqli_connect('localhost','root','','codenair');
 //Getting Input value
 if (isset($_POST['login'])) {
-    $username=mysqli_real_escape_string($conn,$_POST['username']);
-    $password=mysqli_real_escape_string($conn,$_POST['password']);
-    $passwordmd5=md5($password);
+    $username = mysqli_real_escape_string($con,$_POST['username']);
+    $password = mysqli_real_escape_string($con,$_POST['password']);
+    $passwordmd5 = md5($password);
     
     if (empty($username) && empty($password)) {
         $error= 'Fields are Mandatory';
     } else {
         //Checking Login Detail
-        $result=mysqli_query($conn,"SELECT * FROM `user` WHERE `username`='$username' AND `password`='$passwordmd5'");
-        $row=mysqli_fetch_assoc($result);
-        $count=mysqli_num_rows($result);
+        $result = mysqli_query($con,"SELECT * FROM `user` WHERE `username`='$username' AND `password`='$passwordmd5'");
+        $row = mysqli_fetch_assoc($result);
+        $count = mysqli_num_rows($result);
         if ($count==1) {
             $_SESSION['user']=array(
                 'username'=>$row['username'],
