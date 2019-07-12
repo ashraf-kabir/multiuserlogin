@@ -4,10 +4,11 @@ session_start();
 if (empty($_SESSION['user'])) {
     header('location:index.php');
 }
-//Restrict admin or Moderator to Access user.php page
+//Restrict admin to access user.php page
 if ($_SESSION['user']['role']=='admin') {
     header('location:admin.php');
 }
+//Restrict moderator to access user.php page
 if ($_SESSION['user']['role']=='moderator') {
     header('location:moderator.php');
 }

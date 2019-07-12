@@ -6,14 +6,14 @@ if (isset($_POST['login'])) {
     $username=mysqli_real_escape_string($conn,$_POST['username']);
     $password=mysqli_real_escape_string($conn,$_POST['password']);
     
-    if (empty($username)&&empty($password)) {
+    if (empty($username) && empty($password)) {
         $error= 'Fileds are Mandatory';
     } else {
         //Checking Login Detail
         $result=mysqli_query($conn,"SELECT*FROM user WHERE username='$username' AND password='$password'");
         $row=mysqli_fetch_assoc($result);
         $count=mysqli_num_rows($result);
-        if($count==1){
+        if ($count==1) {
             $_SESSION['user']=array(
                 'username'=>$row['username'],
                 'password'=>$row['password'],
