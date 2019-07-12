@@ -11,7 +11,7 @@ if (isset($_POST['login'])) {
         $error= 'Fields are Mandatory';
     } else {
         //Checking Login Detail
-        $result=mysqli_query($conn,"SELECT*FROM `user` WHERE `username`='$username' AND `password`='$password'");
+        $result=mysqli_query($conn,"SELECT * FROM `user` WHERE `username`='$username' AND `password`='$password'");
         $row=mysqli_fetch_assoc($result);
         $count=mysqli_num_rows($result);
         if ($count==1) {
@@ -22,7 +22,7 @@ if (isset($_POST['login'])) {
             );
             $role=$_SESSION['user']['role'];
             //Redirecting user based on role
-            switch($role){
+            switch ($role) {
                 case 'user':
                 header('location:user.php');
                 break;
