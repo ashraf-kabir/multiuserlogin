@@ -1,16 +1,16 @@
 <?php
 session_start();
-//Checking User Logged or Not
+//Checking user logged or not
 if (empty($_SESSION['user'])) {
-    header('location:index.php');
+    header('location: index.php');
 }
 //Restrict user to access Admin.php page
 if ($_SESSION['user']['role']=='user') {
-    header('location:user.php');
+    header('location: user.php');
 }
 //Restrict moderator to access Admin.php page
 if ($_SESSION['user']['role']=='moderator') {
-    header('location:moderator.php');
+    header('location: moderator.php');
 }
 ?>
 <h1>Wellcome to <?php echo $_SESSION['user']['username'];?> Page</h1>
