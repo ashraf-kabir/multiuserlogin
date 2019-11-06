@@ -13,7 +13,7 @@ if ($_SESSION['user']['role']=='moderator') {
     header('location: moderator.php');
 }
 ?>
-<h1>Wellcome to <?php echo $_SESSION['user']['username'];?> Page</h1>
+<h1>Welcome to <?php echo $_SESSION['user']['username'];?> Page</h1>
 
 <link rel="stylesheet" href="style.css" type="text/css"/>
 <div id="profile">
